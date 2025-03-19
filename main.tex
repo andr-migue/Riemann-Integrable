@@ -1,9 +1,9 @@
 \documentclass{article}
-\usepackage{amsmath, amssymb, amsthm}
+\usepackage{amsmath, amssymb, amsthm, graphicx}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 
-\title{Teorema de Necesidad y Suficiencia para la Integrabilidad de Riemann}
+\title{Equivalencia de Condiciones para la Integrabilidad de Riemann}
 \author{}
 \date{}
 
@@ -12,128 +12,89 @@
 \maketitle
 
 \section*{Introducción}
-En el análisis matemático, el concepto de integrabilidad de Riemann es fundamental para definir la integral de una función en un intervalo cerrado $[a, b]$. Una función $f: [a, b] \to \mathbb{R}$ se dice Riemann integrable si existe un número $I$ tal que, para todo $\epsilon > 0$, existe una partición $P$ de $[a, b]$ para la cual las sumas superiores e inferiores de $f$ sobre $P$ están suficientemente cerca de $I$. Este teorema establece condiciones necesarias y suficientes para que una función sea Riemann integrable, y se puede expresar de tres maneras equivalentes:
+En el análisis matemático, la integrabilidad de Riemann es un concepto fundamental. Una función $f: [a, b] \to \mathbb{R}$ se dice Riemann integrable si existe $I \in \mathbb{R}$ tal que:
+\[
+\forall \epsilon > 0, \exists P \text{ partición de } [a, b] \text{ tal que } U(P, f) - L(P, f) < \epsilon.
+\]
+Este teorema establece condiciones necesarias y suficientes para la integrabilidad de Riemann, formuladas en tres formas equivalentes:
 
 \begin{enumerate}
-    \item \textbf{Condición de Riemann}: Para todo $\epsilon > 0$, existe una partición $P$ de $[a, b]$ tal que la diferencia entre la suma superior $U(P, f)$ y la suma inferior $L(P, f)$ es menor que $\epsilon$.
-    
-    \item \textbf{Condición de Darboux}: El límite de las sumas superiores $U(P, f)$ y el límite de las sumas inferiores $L(P, f)$ coinciden cuando el tamaño de la partición tiende a cero.
-    
-    \item \textbf{Condición de Cauchy}: Para todo $\epsilon > 0$, existe una partición $P$ de $[a, b]$ tal que, para cualquier refinamiento $P'$ de $P$, la diferencia entre las sumas superior e inferior sobre $P'$ es menor que $\epsilon$.
+    \item \textbf{Condición de Riemann}: $\forall \epsilon > 0, \exists P$ partición de $[a, b]$ tal que $U(P, f) - L(P, f) < \epsilon$.
+    \item \textbf{Condición de Darboux}: $\lim\limits_{\lVert P \rVert \to 0} U(P, f) = \lim\limits_{\lVert P \rVert \to 0} L(P, f)$.
+    \item \textbf{Condición de Cauchy}: $\forall \epsilon > 0, \exists P$ partición de $[a, b]$ tal que $\forall P' \supseteq P$, se tiene $U(P', f) - L(P', f) < \epsilon$.
 \end{enumerate}
 
-En este texto, demostraremos rigurosamente que estas tres condiciones son equivalentes, es decir, que cada una implica a las otras dos. Esto se hará demostrando las siguientes implicaciones:
-
-\begin{enumerate}
-    \item La condición de Riemann implica la condición de Darboux.
-    \item La condición de Darboux implica la condición de Cauchy.
-    \item La condición de Cauchy implica la condición de Riemann.
-\end{enumerate}
-
-Con estas tres implicaciones, habremos establecido la equivalencia completa entre las tres condiciones.
+Demostraremos la equivalencia probando las siguientes implicaciones:
+\[
+\text{Riemann} \Rightarrow \text{Darboux} \Rightarrow \text{Cauchy} \Rightarrow \text{Riemann}.
+\]
 
 \section*{Demostración de las Implicaciones}
 
-\subsection*{1. La condición de Riemann implica la condición de Darboux}
+\subsection*{1. Riemann $\Rightarrow$ Darboux}
+\textbf{Hipótesis:} $\forall \epsilon > 0, \exists P$ tal que $U(P, f) - L(P, f) < \epsilon$.
 
-\textbf{Hipótesis}: Supongamos que se cumple la condición de Riemann. Es decir, para todo $\epsilon > 0$, existe una partición $P$ de $[a, b]$ tal que:
+\textbf{Tesis:} $\lim\limits_{\lVert P \rVert \to 0} U(P, f) = \lim\limits_{\lVert P \rVert \to 0} L(P, f)$.
+
+El argumento geométrico subyacente a esta afirmación es que, conforme el tamaño de la partición se reduce, las áreas de las barras de la suma superior y la suma inferior se van ajustando a la misma cantidad. Intuitivamente, al hacer las particiones más finas, las oscilaciones de la función quedan cada vez más confinadas, reduciendo la diferencia $U(P, f) - L(P, f)$. Esto se puede visualizar mediante diagramas en los que la diferencia de áreas se vuelve arbitrariamente pequeña.
+
+\begin{center}
+    \includegraphics[width=1\textwidth]{Figure_1.png}
+\end{center}
+
+Dado $\epsilon > 0$, existe una partición $P$ tal que:
 \[
 U(P, f) - L(P, f) < \epsilon.
 \]
-
-\textbf{Tesis}: Demostraremos que se cumple la condición de Darboux, es decir:
+Dado que $U(P, f)$ y $L(P, f)$ son respectivamente cotas superior e inferior de la integral, se tiene:
 \[
-\lim_{||P|| \to 0} U(P, f) = \lim_{||P|| \to 0} L(P, f).
+L(P, f) \leq \int_a^b f(x) \mathrm{d}x \leq U(P, f).
 \]
+Al hacer $\lVert P \rVert \to 0$, se concluye que $U(P, f)$ y $L(P, f)$ convergen a un mismo valor, demostrando la tesis.
 
-\textbf{Demostración}:
+\subsection*{2. Darboux $\Rightarrow$ Cauchy}
+\textbf{Hipótesis:} $\lim\limits_{\lVert P \rVert \to 0} U(P, f) = \lim\limits_{\lVert P \rVert \to 0} L(P, f)$.
 
-Dado $\epsilon > 0$, por la condición de Riemann, existe una partición $P$ tal que:
+\textbf{Tesis:} $\forall \epsilon > 0, \exists P$ tal que $\forall P' \supseteq P$, se cumple $U(P', f) - L(P', f) < \epsilon$.
+
+Desde una perspectiva geométrica, la condición de Darboux garantiza que al hacer refinamientos sucesivos, la diferencia entre las sumas superior e inferior disminuye de manera controlada. Esto significa que, sin importar cómo se refinan las particiones, los valores de $U(P, f)$ y $L(P, f)$ permanecerán cercanos, asegurando la condición de Cauchy.
+
+\begin{center}
+    \includegraphics[width=1\textwidth]{Figure_2.png}
+\end{center}
+
+Dado $\epsilon > 0$, existe $\delta > 0$ tal que, para cualquier partición $P$ con $\lVert P \rVert < \delta$:
 \[
 U(P, f) - L(P, f) < \epsilon.
 \]
+Si $P'$ es un refinamiento de $P$, entonces $\lVert P' \rVert \leq \lVert P \rVert < \delta$, por lo que la desigualdad sigue siendo válida, demostrando la tesis.
 
-Como $U(P, f)$ es una cota superior para las sumas superiores y $L(P, f)$ es una cota inferior para las sumas inferiores, se tiene:
-\[
-L(P, f) \leq \int_a^b f(x) \, dx \leq U(P, f).
-\]
+\subsection*{3. Cauchy $\Rightarrow$ Riemann}
+\textbf{Hipótesis:} $\forall \epsilon > 0, \exists P$ tal que $\forall P' \supseteq P$ se cumple $U(P', f) - L(P', f) < \epsilon$.
 
-Por lo tanto, $U(P, f) - L(P, f) < \epsilon$ implica que:
-\[
-|U(P, f) - \int_a^b f(x) \, dx| < \epsilon \quad \text{y} \quad |L(P, f) - \int_a^b f(x) \, dx| < \epsilon.
-\]
+\textbf{Tesis:} $\forall \epsilon > 0, \exists P$ tal que $U(P, f) - L(P, f) < \epsilon$.
 
-Esto muestra que $U(P, f)$ y $L(P, f)$ convergen al mismo valor (la integral de $f$) cuando $||P|| \to 0$.
+Desde una perspectiva visual, esto significa que una vez que encontramos una partición suficientemente fina, cualquier refinamiento posterior sigue cumpliendo la propiedad de que la diferencia entre la suma superior e inferior se mantiene por debajo de $\epsilon$. Este hecho implica que la función es integrable en el sentido de Riemann.
 
-Por lo tanto, se cumple la condición de Darboux.
+\begin{center}
+    \includegraphics[width=1\textwidth]{Figure_3.png}
+\end{center}
 
-\subsection*{2. La condición de Darboux implica la condición de Cauchy}
-
-\textbf{Hipótesis}: Supongamos que se cumple la condición de Darboux. Es decir:
-\[
-\lim_{||P|| \to 0} U(P, f) = \lim_{||P|| \to 0} L(P, f).
-\]
-
-\textbf{Tesis}: Demostraremos que se cumple la condición de Cauchy, es decir, para todo $\epsilon > 0$, existe una partición $P$ de $[a, b]$ tal que, para cualquier refinamiento $P'$ de $P$, se cumple:
+Dado $\epsilon > 0$, por la hipótesis existe una partición $P$ tal que $\forall P' \supseteq P$:
 \[
 U(P', f) - L(P', f) < \epsilon.
 \]
-
-\textbf{Demostración}:
-
-Dado $\epsilon > 0$, por la condición de Darboux, existe $\delta > 0$ tal que, para cualquier partición $P$ con $||P|| < \delta$, se cumple:
-\[
-|U(P, f) - L(P, f)| < \epsilon.
-\]
-
-Sea $P$ una partición con $||P|| < \delta$.
-
-Para cualquier refinamiento $P'$ de $P$, se tiene $||P'|| \leq ||P|| < \delta$.
-
-Por lo tanto, $U(P', f) - L(P', f) < \epsilon$.
-
-Esto muestra que se cumple la condición de Cauchy.
-
-\subsection*{3. La condición de Cauchy implica la condición de Riemann}
-
-\textbf{Hipótesis}: Supongamos que se cumple la condición de Cauchy. Es decir, para todo $\epsilon > 0$, existe una partición $P$ de $[a, b]$ tal que, para cualquier refinamiento $P'$ de $P$, se cumple:
-\[
-U(P', f) - L(P', f) < \epsilon.
-\]
-
-\textbf{Tesis}: Demostraremos que se cumple la condición de Riemann, es decir, para todo $\epsilon > 0$, existe una partición $P$ de $[a, b]$ tal que:
-\[
-U(P, f) - L(P, f) < \epsilon.
-\]
-
-\textbf{Demostración}:
-
-Dado $\epsilon > 0$, por la condición de Cauchy, existe una partición $P$ tal que, para todo refinamiento $P'$ de $P$, se cumple:
-\[
-U(P', f) - L(P', f) < \epsilon.
-\]
-
-En particular, $P$ es un refinamiento de sí misma, por lo que:
-\[
-U(P, f) - L(P, f) < \epsilon.
-\]
-
-Esto muestra que se cumple la condición de Riemann.
+En particular, tomando $P' = P$, se concluye $U(P, f) - L(P, f) < \epsilon$, demostrando la tesis.
 
 \section*{Conclusión}
-Hemos demostrado rigurosamente las tres implicaciones:
-
-\begin{enumerate}
-    \item La condición de Riemann implica la condición de Darboux.
-    \item La condición de Darboux implica la condición de Cauchy.
-    \item La condición de Cauchy implica la condición de Riemann.
-\end{enumerate}
-
+Hemos probado las implicaciones:
+\[
+\text{Riemann} \Rightarrow \text{Darboux} \Rightarrow \text{Cauchy} \Rightarrow \text{Riemann}.
+\]
 Por lo tanto, las tres condiciones son equivalentes:
 \[
-\text{Condición de Riemann} \iff \text{Condición de Darboux} \iff \text{Condición de Cauchy}.
+\text{Riemann} \iff \text{Darboux} \iff \text{Cauchy}.
 \]
-
-Esto establece que una función $f$ es Riemann integrable en $[a, b]$ si y solo si se cumple cualquiera de estas tres condiciones. Esta equivalencia es fundamental en el análisis matemático y proporciona una comprensión profunda de la integrabilidad de Riemann.
+Esto establece que $f$ es Riemann integrable en $[a, b]$ si y solo si cumple cualquiera de estas condiciones, proporcionando un criterio riguroso para su integrabilidad.
 
 \end{document}

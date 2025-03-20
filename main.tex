@@ -24,6 +24,21 @@ Este teorema establece condiciones necesarias y suficientes para la integrabilid
     \item \textbf{Condición de Cauchy}: $\forall \epsilon > 0, \exists P$ partición de $[a, b]$ tal que $\forall P' \supseteq P$, se tiene $U(P', f) - L(P', f) < \epsilon$.
 \end{enumerate}
 
+\subsection*{Notación}
+Sea $ P = \{ x_0, x_1, \dots, x_n \} $ una partición de $ [a, b] $, donde $ a = x_0 < x_1 < \dots < x_n = b $. Definimos la norma de la partición como
+\[
+\lVert P \rVert = \max_{i} (x_i - x_{i-1}).
+\]
+Esta cantidad mide el tamaño del subintervalo más grande en la partición.
+\\
+\par
+
+La clave de estas condiciones es que, conforme el tamaño de la partición se reduce, las áreas de las barras de la suma superior e inferior se van ajustando a la misma cantidad. Intuitivamente, al hacer las particiones más finas, las oscilaciones de la función quedan cada vez más confinadas, reduciendo la diferencia $U(P, f) - L(P, f)$. Esto se puede visualizar mediante una secuencia de diagramas donde la diferencia de áreas se vuelve arbitrariamente pequeña.
+
+\begin{center}
+    \includegraphics[width=1\textwidth]{Figure_1.png}
+\end{center}
+
 Demostraremos la equivalencia probando las siguientes implicaciones:
 \[
 \text{Riemann} \Rightarrow \text{Darboux} \Rightarrow \text{Cauchy} \Rightarrow \text{Riemann}.
@@ -35,12 +50,6 @@ Demostraremos la equivalencia probando las siguientes implicaciones:
 \textbf{Hipótesis:} $\forall \epsilon > 0, \exists P$ tal que $U(P, f) - L(P, f) < \epsilon$.
 
 \textbf{Tesis:} $\lim\limits_{\lVert P \rVert \to 0} U(P, f) = \lim\limits_{\lVert P \rVert \to 0} L(P, f)$.
-
-El argumento geométrico subyacente a esta afirmación es que, conforme el tamaño de la partición se reduce, las áreas de las barras de la suma superior y la suma inferior se van ajustando a la misma cantidad. Intuitivamente, al hacer las particiones más finas, las oscilaciones de la función quedan cada vez más confinadas, reduciendo la diferencia $U(P, f) - L(P, f)$. Esto se puede visualizar mediante diagramas en los que la diferencia de áreas se vuelve arbitrariamente pequeña.
-
-\begin{center}
-    \includegraphics[width=1\textwidth]{Figure_1.png}
-\end{center}
 
 Dado $\epsilon > 0$, existe una partición $P$ tal que:
 \[
@@ -57,7 +66,7 @@ Al hacer $\lVert P \rVert \to 0$, se concluye que $U(P, f)$ y $L(P, f)$ converge
 
 \textbf{Tesis:} $\forall \epsilon > 0, \exists P$ tal que $\forall P' \supseteq P$, se cumple $U(P', f) - L(P', f) < \epsilon$.
 
-Desde una perspectiva geométrica, la condición de Darboux garantiza que al hacer refinamientos sucesivos, la diferencia entre las sumas superior e inferior disminuye de manera controlada. Esto significa que, sin importar cómo se refinan las particiones, los valores de $U(P, f)$ y $L(P, f)$ permanecerán cercanos, asegurando la condición de Cauchy.
+Esto significa que, sin importar cómo se refinan las particiones, los valores de $U(P, f)$ y $L(P, f)$ permanecerán cercanos, asegurando la condición de Cauchy.
 
 \begin{center}
     \includegraphics[width=1\textwidth]{Figure_2.png}
@@ -74,7 +83,7 @@ Si $P'$ es un refinamiento de $P$, entonces $\lVert P' \rVert \leq \lVert P \rVe
 
 \textbf{Tesis:} $\forall \epsilon > 0, \exists P$ tal que $U(P, f) - L(P, f) < \epsilon$.
 
-Desde una perspectiva visual, esto significa que una vez que encontramos una partición suficientemente fina, cualquier refinamiento posterior sigue cumpliendo la propiedad de que la diferencia entre la suma superior e inferior se mantiene por debajo de $\epsilon$. Este hecho implica que la función es integrable en el sentido de Riemann.
+Este hecho implica que la función es integrable en el sentido de Riemann.
 
 \begin{center}
     \includegraphics[width=1\textwidth]{Figure_3.png}
@@ -87,11 +96,16 @@ U(P', f) - L(P', f) < \epsilon.
 En particular, tomando $P' = P$, se concluye $U(P, f) - L(P, f) < \epsilon$, demostrando la tesis.
 
 \section*{Conclusión}
-Hemos probado las implicaciones:
+\begin{center}
+    Hemos probado las implicaciones:
+\end{center}
 \[
 \text{Riemann} \Rightarrow \text{Darboux} \Rightarrow \text{Cauchy} \Rightarrow \text{Riemann}.
 \]
-Por lo tanto, las tres condiciones son equivalentes:
+
+\begin{center}
+    Por lo tanto, las tres condiciones son equivalentes:
+\end{center}
 \[
 \text{Riemann} \iff \text{Darboux} \iff \text{Cauchy}.
 \]

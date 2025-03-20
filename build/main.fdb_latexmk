@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1742348544.43852 "c:/Miguel/Projects/Riemann-Integrable/main.tex" "build/main.pdf" "main" 1742348545.22125 0
+["pdflatex"] 1742449717.55025 "c:/Miguel/Projects/Riemann-Integrable/main.tex" "build/main.pdf" "main" 1742449718.31984 0
   "C:/Program Files/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
   "C:/Program Files/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1233951848 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "C:/Program Files/MiKTeX/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1233951854 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -74,9 +74,9 @@
   "Figure_1.png" 1742347995 102458 aeb70aab435c71153f1e2e241322cc0f ""
   "Figure_2.png" 1742348027 93040 2d950e82836ac535a9bc04de5cc4d9a4 ""
   "Figure_3.png" 1742348052 92113 0ad9b4b447567520d184858b1cbf5529 ""
-  "build/main.aux" 1742348545 232 e4374e8bf5cbf47e856857f0b4de3017 "pdflatex"
-  "c:/Miguel/Projects/Riemann-Integrable/main.tex" 1742348543 5155 bf2e6f6b3dc921d38e7351477affb6e5 ""
-  "main.tex" 1742348543 5155 bf2e6f6b3dc921d38e7351477affb6e5 ""
+  "build/main.aux" 1742449718 232 24afd9b12cb36b06a4fa8c1b17b2b49b "pdflatex"
+  "c:/Miguel/Projects/Riemann-Integrable/main.tex" 1742449716 5070 93a51ff49617544a1b5f194b1d276ad0 ""
+  "main.tex" 1742449716 5070 93a51ff49617544a1b5f194b1d276ad0 ""
   (generated)
   "build/main.aux"
   "build/main.log"
